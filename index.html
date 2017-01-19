@@ -7,6 +7,9 @@
    <!-- Jquery -->
 
    <script src="https://code.jquery.com/jquery.js"></script>
+
+   <!-- Moment.js -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
    
    <!-- Bootstrap CDN-->
 
@@ -34,13 +37,19 @@
             <div class="panel-heading">
                <h3 class="panel=title">Current Train Schedule</h3>
             </div>
-            <div class="panel-body">
-               <h4 id="nameDisplay"></h4>
-               <h4 id="destinationDisplay"></h4>
-               <h4 id="frequencyDisplay"></h4>
-               <h4 id="arrivalDisplay"></h4>
-               <h4 id="minutesDisplay"></h4>
-            </div>
+            <table class="table" id='train-table'>
+                <thead>
+                  <tr>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Frequency(min)</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
          </div>
       </div>
    </div>

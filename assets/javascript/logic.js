@@ -37,7 +37,7 @@
     // 	frequency: frequencyInput,
     // }
 
-    firebase.database().ref().set( {
+    firebase.database().ref().push( {
       name:name,
       destination:destination,
       frequency:frequency,
@@ -46,39 +46,59 @@
 
     })
 
+    //Clears text box
+
+    $("nameInput").val("");
+    $("destinationInput").val("");
+    $("frequencyInput").val("");
+    $("timeInput").val("");
+
+
     return false;
 
   });
 
-  firebase.database().ref().on("value", function(snapshot) {
+  firebase.database().ref().on("child_added", function(snapshot) {
     $("#nameDisplay").html(snapshot.val().name);
     $("#destinationDisplay").html(snapshot.val().destination);
     $("#frequencyDisplay").html(snapshot.val().frequency);
     $("#arrivalDisplay").html(snapshot.val().arrival);
     $("#minutesDisplay").html(snapshot.val().minutes);
 
-  });
+  // Store into variable.
+  var nameDisplay = snapshot.val().name;
+  var destinationDisplay = snapshot.val().destination;
+  var frequencyDisplay = snapshot.val().frequency;
+  var arrivalDisplay = snapshot.val().arrival;
+  var minutesDisplay = snapshot.val().minutes;
+
+   $("#train-table > tbody").append("<tr><td>" + nameDisplay + 
+  	"</td><td>" + destinationDisplay + 
+  	"</td><td>" + frequencyDisplay + 
+  	"</td><td>" + arrivalDisplay + 
+    "</td><td>" + minutesDisplay + 
+    "</td><td>");
+
+   });
 
 
   //Save to firebase
 
   // database.ref().push(newTrain);
 
-  // Clear user inputs
 
   // $("#nameDisplay").val("");
 
   // return false;
 
 
-  // Append to page
+  // Append to firebase
 
   // database.ref().on("child_added", function (childSnapshot) {
   		// nameDisplay= childSnapshot.val().name;
 
   // }
 
-  //
 
   //moment.js
 
