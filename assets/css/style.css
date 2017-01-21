@@ -1,9 +1,23 @@
 .btn-default {
-	margin-left: 12px;
+	margin-right: 10px;
 	background-color: #3a71b2;
-	color: #d5e3f8;
+	color: white;
 }
 
 h4 {
 	font-weight: bold;
+}
+
+.jumbotron {
+	background-color: #713f26;
+	color: white;
+}
+
+.panel-default>.panel-heading {
+	background-color: #3a71b2;
+	color: white;
+}
+
+.panel.panel-default {
+	border-color: #3a71b2;
 }
